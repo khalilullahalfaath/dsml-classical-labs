@@ -1,0 +1,21 @@
+{
+  "model": "RandomForestRegressor",
+  "timestamp": "2026-05-08 08:10:29",
+  "train_metrics": {
+    "rmse": 97057.3394331403,
+    "mae": 61591.59802205199,
+    "r2": 0.9278972285485089
+  },
+  "test_metrics": {
+    "rmse": 154895.68188206654,
+    "mae": 79411.16240575185,
+    "r2": 0.8412938612863492
+  },
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "min_samples_split": 5,
+    "min_samples_leaf": 2,
+    "random_state": 42
+  }
+}

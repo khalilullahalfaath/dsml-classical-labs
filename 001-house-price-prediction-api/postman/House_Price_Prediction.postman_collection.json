@@ -1,0 +1,174 @@
+{
+  "info": {
+    "name": "House Price Prediction API",
+    "description": "API for predicting house prices using Random Forest model",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "house-price-api"
+  },
+  "item": [
+    {
+      "name": "Root",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        },
+        "description": "Get API information and available endpoints"
+      },
+      "response": []
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        },
+        "description": "Check if API and model are healthy"
+      },
+      "response": []
+    },
+    {
+      "name": "Model Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/model-info",
+          "host": ["{{base_url}}"],
+          "path": ["model-info"]
+        },
+        "description": "Get model information, metrics, and top features"
+      },
+      "response": []
+    },
+    {
+      "name": "Predict House Price",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bedrooms\": 3,\n  \"bathrooms\": 2.5,\n  \"sqft_living\": 2000,\n  \"sqft_lot\": 5000,\n  \"floors\": 2,\n  \"waterfront\": 0,\n  \"view\": 0,\n  \"condition\": 3,\n  \"grade\": 7,\n  \"sqft_above\": 1500,\n  \"sqft_basement\": 500,\n  \"yr_built\": 1990,\n  \"yr_renovated\": 0,\n  \"zipcode\": 98001,\n  \"lat\": 47.5,\n  \"long\": -122.3,\n  \"sqft_living15\": 1800,\n  \"sqft_lot15\": 4500\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/predict",
+          "host": ["{{base_url}}"],
+          "path": ["predict"]
+        },
+        "description": "Predict house price based on input features"
+      },
+      "response": []
+    },
+    {
+      "name": "Predict - Luxury House",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bedrooms\": 5,\n  \"bathrooms\": 4.5,\n  \"sqft_living\": 4500,\n  \"sqft_lot\": 10000,\n  \"floors\": 2,\n  \"waterfront\": 1,\n  \"view\": 4,\n  \"condition\": 5,\n  \"grade\": 11,\n  \"sqft_above\": 3500,\n  \"sqft_basement\": 1000,\n  \"yr_built\": 2010,\n  \"yr_renovated\": 2020,\n  \"zipcode\": 98004,\n  \"lat\": 47.6,\n  \"long\": -122.2,\n  \"sqft_living15\": 4000,\n  \"sqft_lot15\": 9000\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/predict",
+          "host": ["{{base_url}}"],
+          "path": ["predict"]
+        },
+        "description": "Example prediction for a luxury house with waterfront"
+      },
+      "response": []
+    },
+    {
+      "name": "Predict - Budget House",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bedrooms\": 2,\n  \"bathrooms\": 1,\n  \"sqft_living\": 1000,\n  \"sqft_lot\": 3000,\n  \"floors\": 1,\n  \"waterfront\": 0,\n  \"view\": 0,\n  \"condition\": 3,\n  \"grade\": 5,\n  \"sqft_above\": 1000,\n  \"sqft_basement\": 0,\n  \"yr_built\": 1960,\n  \"yr_renovated\": 0,\n  \"zipcode\": 98001,\n  \"lat\": 47.3,\n  \"long\": -122.4,\n  \"sqft_living15\": 1200,\n  \"sqft_lot15\": 3500\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/predict",
+          "host": ["{{base_url}}"],
+          "path": ["predict"]
+        },
+        "description": "Example prediction for a budget-friendly house"
+      },
+      "response": []
+    },
+    {
+      "name": "Predict - Invalid Input (Missing Field)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bedrooms\": 3,\n  \"bathrooms\": 2.5,\n  \"sqft_living\": 2000\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/predict",
+          "host": ["{{base_url}}"],
+          "path": ["predict"]
+        },
+        "description": "Test error handling - missing required fields"
+      },
+      "response": []
+    },
+    {
+      "name": "Predict - Invalid Input (Negative Value)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bedrooms\": -1,\n  \"bathrooms\": 2.5,\n  \"sqft_living\": 2000,\n  \"sqft_lot\": 5000,\n  \"floors\": 2,\n  \"waterfront\": 0,\n  \"view\": 0,\n  \"condition\": 3,\n  \"grade\": 7,\n  \"sqft_above\": 1500,\n  \"sqft_basement\": 500,\n  \"yr_built\": 1990,\n  \"yr_renovated\": 0,\n  \"zipcode\": 98001,\n  \"lat\": 47.5,\n  \"long\": -122.3,\n  \"sqft_living15\": 1800,\n  \"sqft_lot15\": 4500\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/predict",
+          "host": ["{{base_url}}"],
+          "path": ["predict"]
+        },
+        "description": "Test error handling - negative bedrooms value"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}

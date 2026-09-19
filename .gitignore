@@ -1,0 +1,106 @@
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.virtualenv/
+
+# ============================================================
+# Jupyter
+# ============================================================
+.ipynb_checkpoints/
+.jupyter/
+
+# ============================================================
+# Data files
+# ============================================================
+*.csv
+*.tsv
+*.dat
+*.data
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.xls
+*.xlsx
+*.json.gz
+*/data/raw/*
+*/data/processed/*
+*/data/external/*
+!**/data/.gitkeep
+!**/data/sample/
+
+# ============================================================
+# Model artifacts
+# ============================================================
+*.h5
+*.hdf5
+*.pb
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.tflite
+*/models/saved/*
+*/models/checkpoints/*
+!**/models/.gitkeep
+
+# ============================================================
+# Logs & experiment tracking
+# ============================================================
+logs/
+*.log
+mlruns/
+runs/
+wandb/
+.neptune/
+tensorboard/
+lightning_logs/
+*.tfrecord
+
+# DVC
+.dvc/
+*.dvc
+
+# Caches
+.cache/
+*.cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ============================================================
+# IDE & OS
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# Secrets
+# ============================================================
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+service-account.json
+secrets/
